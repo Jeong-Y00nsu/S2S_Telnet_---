@@ -25,3 +25,8 @@ class Server:
     
     def getPort(self):
         return self.port
+    
+    def __eq__(self, other):
+        if isinstance(other, Server):
+            return self.ip == other.ip
+        return False
