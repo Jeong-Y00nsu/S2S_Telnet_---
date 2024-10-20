@@ -1,25 +1,7 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QVBoxLayout, QWidget
-
+from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QVBoxLayout, QWidget
 import sys
 
-from random import randint
-
-
-class AnotherWindow(QWidget):
-    """
-    This "window" is a QWidget. If it has no parent, it
-    will appear as a free-floating window as we want.
-    """
-    def __init__(self):
-        super().__init__()
-        layout = QVBoxLayout()
-        self.label = QLabel("Another Window % d" % randint(0,100))
-        layout.addWidget(self.label)
-        self.setLayout(layout)
-
-
 class MainWindow(QMainWindow):
-
     def __init__(self):
         super().__init__()
         self.w = None  # No external window yet.
@@ -29,11 +11,15 @@ class MainWindow(QMainWindow):
 
     def show_new_window(self, checked):
         if self.w is None:
-            self.w = AnotherWindow()
+            self.w = CheckDeleteSourceServerWindow()
         self.w.show()
 
+class CheckDeleteSourceServerWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+        layout = QVBoxLayout()
+        self.label = QLabel("Another Window")
+        layout.addWidget(self.label)
+        self.setLayout(layout)
 
-app = QApplication(sys.argv)
-w = MainWindow()
-w.show()
-app.exec()
+''' pyQt designer 사용 예정... '''
