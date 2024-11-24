@@ -42,6 +42,7 @@ class AutoGUI:
             pyautogui.hotkey('ctrl', 'c')
             time.sleep(0.5)
             
+            ''' 클립 보드에서 복사한 내용 가져오기 '''
             copiedText = pyperclip.paste()
             
             result_text += copiedText + "\n"

@@ -26,5 +26,3 @@ class ServerInfo:
 
     def getSleepTime(self):
         return self.sleepTime
-    
-    
